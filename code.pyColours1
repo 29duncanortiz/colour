@@ -1,0 +1,106 @@
+import board
+import neopixel
+import time
+ 
+pixel_pin = board.D2   #the ring data is connected to this pin
+num_pixels = 16        #number of leds pixels on the ring
+ 
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.3, auto_write=False)
+ 
+RED = (255, 0, 0) # RGB
+YELLOW = (255, 150, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+C1 = (106, 186, 246)
+WHITE = (0, 0, 0)
+C3 = (106, 31, 246)
+C2 = (199, 41, 246)
+OFF = (0, 0, 0)
+ 
+while True:
+    pixels[0] = RED
+    pixels.show()     #required to update pixels
+    time.sleep(1)
+    
+    pixels[1] = YELLOW
+    pixels.show()
+    time.sleep(1)
+    
+    pixels[2] = GREEN
+    pixels.show()
+    time.sleep(1)
+    
+    pixels[3] = CYAN
+    pixels.show()
+    time.sleep(1)
+    
+    pixels[4] = BLUE
+    pixels.show()
+    time.sleep(1)
+    
+    pixels[5] = PURPLE
+    pixels.show()
+    time.sleep(1)
+    
+    pixels[0] = C1 
+    pixels.show()     #required to update pixels
+    time.sleep(1)
+    
+    pixels[1] = WHITE
+    pixels.show()
+    time.sleep(1)
+    
+    pixels[2] = C2
+    pixels.show()
+    time.sleep(1)
+    
+    pixels[3] = C3
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(RED)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(YELLOW)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(GREEN)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(CYAN)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(BLUE)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(PURPLE)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(C1)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(WHITE)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(C2)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(C3)
+    pixels.show()
+    time.sleep(1)
+    
+    pixels.fill(OFF)
+    pixels.show()
+    time.sleep(1)
+
+
