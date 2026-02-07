@@ -1,3 +1,4 @@
+# Write your code here :-)
 import board
 import neopixel
 import time
@@ -12,10 +13,12 @@ YELLOW = (255, 150, 0)
 GREEN = (0, 255, 0)
 CYAN = (0, 255, 255)
 BLUE = (0, 0, 255)
-C1 = (106, 186, 246)
-WHITE = (0, 0, 0)
-C3 = (106, 31, 246)
-C2 = (199, 41, 246)
+PURPLE = (180, 0, 255)
+C1 = (124, 47, 39)
+C2 = (112, 64, 201)
+C3 = (34, 198, 173)
+C4 = (241, 87, 124)
+C5 = (254, 04, 201) 
 OFF = (0, 0, 0)
  
 while True:
@@ -43,64 +46,28 @@ while True:
     pixels.show()
     time.sleep(1)
     
-    pixels[0] = C1 
-    pixels.show()     #required to update pixels
-    time.sleep(1)
-    
-    pixels[1] = WHITE
+    pixels[6] = C1
     pixels.show()
     time.sleep(1)
     
-    pixels[2] = C2
+    pixels[7] = C2
     pixels.show()
     time.sleep(1)
     
-    pixels[3] = C3
+    pixels[8] = C3
     pixels.show()
     time.sleep(1)
     
-    pixels.fill(RED)
+    pixels[9] = C4
     pixels.show()
     time.sleep(1)
     
-    pixels.fill(YELLOW)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(GREEN)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(CYAN)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(BLUE)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(PURPLE)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(C1)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(WHITE)
+    pixels[10] = C5
     pixels.show()
     time.sleep(1)
     
     pixels.fill(C2)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(C3)
-    pixels.show()
-    time.sleep(1)
-    
-    pixels.fill(OFF)
-    pixels.show()
+    pixels.show()    
     time.sleep(1)
 
-
+    
