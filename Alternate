@@ -1,0 +1,48 @@
+import time
+import board
+import neopixel
+from digitalio import DigitalInOut, Direction, Pull
+
+pixel_pin = board.D2
+num_pixels = 15
+
+switch = DigitalInOut(board.D3)
+switch.direction = Direction.INPUT
+switch.pull = Pull.UP
+
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=1.0, auto_write=False)
+
+BURNTORANGE = (221, 125, 51)
+BRIGHTORANGE = (247, 125, 51)
+PINKRED = (247, 56, 95)
+RED = (234, 24, 26)
+OFF = (0, 0, 0)
+
+colors = [BURNTORANGE, BRIGHTORANGE, PINKRED, RED]
+
+while True:
+    print(switch.value)
+
+    if switch.value:
+        # Set color pattern once
+        for i in range(num_pixels):
+            pixels[i] = colors[i % 4]
+
+        # Fade in
+        for b in range(0, 101, 3):
+            pixels.brightness = b / 100
+            pixels.show()
+            time.sleep(0.02)
+
+        # Fade out
+        for b in range(100, -1, -3):
+            pixels.brightness = b / 100
+            pixels.show()
+            time.sleep(0.02)
+
+    else:
+        pixels.fill(OFF)
+        pixels.show()
+        time.sleep(0.1)
+        digitalio[i] = (.py[(pixel_pin, num_pixels, brightness=1.0, auto_write=False)]
+
