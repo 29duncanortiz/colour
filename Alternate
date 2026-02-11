@@ -4,7 +4,7 @@ import neopixel
 from digitalio import DigitalInOut, Direction, Pull
 
 pixel_pin = board.D2
-num_pixels = 15
+num_pixels = 16
 
 switch = DigitalInOut(board.D3)
 switch.direction = Direction.INPUT
