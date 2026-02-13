@@ -1,0 +1,67 @@
+import time
+import board
+import neopixel
+import random
+from digitalio import DigitalInOut, Direction, Pull
+ 
+pixel_pin = board.D2
+num_pixels = 16
+
+switch = DigitalInOut(board.D3)
+switch.direction = Direction.INPUT
+switch.pull = Pull.UP
+ 
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.5, auto_write=False)
+
+BURNTORANGE = (221, 125, 51)
+BRIGHTORANGE = (247, 125, 51)
+PINKRED = (247, 56, 95)
+RED = (234, 24, 26)
+OFF = (0, 0, 0)
+
+# Repeating fire pattern
+base_colors = [
+    BURNTORANGE, BRIGHTORANGE, PINKRED, RED,
+    BURNTORANGE, BRIGHTORANGE, PINKRED, RED,
+    BURNTORANGE, BRIGHTORANGE, PINKRED, RED,
+    BURNTORANGE, BRIGHTORANGE, PINKRED, RED
+]
+
+# Framing
+brightness = [random.uniform(0.1, 1.0) for _ in range(num_pixels)]
+speed = [random.uniform(0.01, 0.08) for _ in range(num_pixels)]
+direction = [1 for _ in range(num_pixels)]
+
+def scale_color(color, level):
+    return (
+        int(color[0] * level),
+        int(color[1] * level),
+        int(color[2] * level)
+    )
+
+while True:
+    if switch.value == True:
+        for i in range(num_pixels):
+            # Brightnesss stuff.
+            brightness[i] += speed[i] * direction[i]
+
+            # direction change stuff
+            if brightness[i] >= 1.0:
+                brightness[i] = 1.0
+                direction[i] = -1
+                speed[i] = random.uniform(0.005, 0.02)  #random speed
+            elif brightness[i] <= 0.01:
+                brightness[i] = 0.05
+                direction[i] = 1
+                speed[i] = random.uniform(0.005, 0.02)
+
+            # Don't explode pixels?
+            pixels[i] = scale_color(base_colors[i], brightness[i])
+
+        pixels.show()
+        time.sleep(0.02)
+
+    else:
+        pixels.fill(OFF)
+        pixels.show()
+        time.sleep(0.1)
