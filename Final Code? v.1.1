@@ -26,6 +26,7 @@ color_choices = [BURNTORANGE, BRIGHTORANGE, PINKRED, RED]
 base_colors = [random.choice(color_choices) for _ in range(num_pixels)]
 
 # Framing
+# Should this line be brightness = [random.uniform(0.1, 0.5) for _ in range(num_pixels)] since brightness=0.5?
 brightness = [random.uniform(0.1, 1.0) for _ in range(num_pixels)]
 speed = [random.uniform(0.002, 0.01) for _ in range(num_pixels)]
 direction = [1 for _ in range(num_pixels)]
