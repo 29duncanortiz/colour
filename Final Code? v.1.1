@@ -53,10 +53,10 @@ while True:
                 brightness[i] = 0.05
                 direction[i] = 1
                 speed[i] = random.uniform(0.002, 0.01)
-                # NEW: pick a new random color when pixel is dim
+                
                 base_colors[i] = random.choice(color_choices)
 
-            # Apply color
+          
             pixels[i] = scale_color(base_colors[i], brightness[i])
 
         pixels.show()
