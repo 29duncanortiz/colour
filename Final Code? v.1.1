@@ -13,14 +13,14 @@ switch.pull = Pull.UP
  
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.5, auto_write=False)
 
-BURNTORANGE = (221, 125, 51)
-BRIGHTORANGE = (247, 125, 51)
-PINKRED = (247, 56, 95)
-RED = (234, 24, 26)
+ORANGE= (181, 83, 9)
+BRIGHT = (247, 125, 51)
+RED = (247, 56, 9)
+PINK = (133, 41, 14)
 OFF = (0, 0, 0)
 
 # List of  colors
-color_choices = [BURNTORANGE, BRIGHTORANGE, PINKRED, RED]
+color_choices = [ORANGE, BRIGHT, RED, PINK]
 
 # Starting colors ()
 base_colors = [random.choice(color_choices) for _ in range(num_pixels)]
@@ -67,3 +67,8 @@ while True:
         pixels.fill(OFF)
         pixels.show()
         time.sleep(0.1)
+
+    
+    
+#Essentially LIGHTORANGE and BRIGHTORANGE are both the same colour so 
+#one of them must be changed
